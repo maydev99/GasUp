@@ -3,9 +3,9 @@ package com.droidloft.gasup;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +19,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     String version = "0.1", buildDate = "5-2-2017";
-    TextView dateTextView, lastGasDateTextView,daysTextView;
+    TextView dateTextView, lastGasDateTextView, daysTextView;
     Button gasUpButton;
     String lastGasDate, strDate;
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         gasUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder confirmAlert  = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder confirmAlert = new AlertDialog.Builder(MainActivity.this);
                 confirmAlert.setTitle("GASUP!");
                 confirmAlert.setMessage("Are you sure?");
                 confirmAlert.setCancelable(true);
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void getDate() {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
@@ -90,21 +89,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void idViews() {
-        dateTextView = (TextView)findViewById(R.id.dateTextView);
-        lastGasDateTextView = (TextView)findViewById(R.id.lastGasTextView);
-        daysTextView = (TextView)findViewById(R.id.daysTextView);
-        gasUpButton = (Button)findViewById(R.id.gasUpButton);
+        dateTextView = (TextView) findViewById(R.id.dateTextView);
+        lastGasDateTextView = (TextView) findViewById(R.id.lastGasTextView);
+        daysTextView = (TextView) findViewById(R.id.daysTextView);
+        gasUpButton = (Button) findViewById(R.id.gasUpButton);
     }
 
     private void calculateDays() {
-        String lastGasDay = lastGasDate.substring(3,5);
-        String lastGasMonth = lastGasDate.substring(0,2);
+        String lastGasDay = lastGasDate.substring(3, 5);
+        String lastGasMonth = lastGasDate.substring(0, 2);
         int lastGasDayInt = Integer.parseInt(lastGasDay);
         int lastGasMonthInt = Integer.parseInt(lastGasMonth);
 
         Calendar theLastDay = Calendar.getInstance();
         theLastDay.set(Calendar.DAY_OF_MONTH, lastGasDayInt);
-        theLastDay.set(Calendar.MONTH, lastGasMonthInt -1);
+        theLastDay.set(Calendar.MONTH, lastGasMonthInt - 1);
 
         Calendar today = Calendar.getInstance();
         long diff = today.getTimeInMillis() - theLastDay.getTimeInMillis();
@@ -121,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.about) {
+        if (item.getItemId() == R.id.about) {
             AlertDialog.Builder aboutAlert = new AlertDialog.Builder(this);
             aboutAlert.setTitle("GasUp v" + version);
             aboutAlert.setMessage("Build Date: " + buildDate + "\n" + "by Michael May" + "\n" + "DroidLoft");

@@ -12,50 +12,53 @@
         android:id="@+id/gasUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gas Up"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="163dp" />
+        android:layout_marginBottom="163dp"
+        android:background="@android:color/black"
+        android:elevation="10dp"
+        android:text="Gas Up"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/dateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Today's Date: "  />
+        android:text="Today's Date: "
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/lastGasTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
         android:layout_below="@+id/dateTextView"
         android:layout_centerHorizontal="true"
-        android:text="Last Gas Up: " />
+        android:text="Last Gas Up: "
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/daysSinceTextView"
         android:layout_width="match_parent"
-        android:gravity="center_horizontal"
-        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
-        android:text="Days Since Last Gas Up"
         android:layout_above="@+id/gasUpButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="68dp" />
+        android:layout_marginBottom="68dp"
+        android:gravity="center_horizontal"
+        android:text="Days Since Last Gas Up"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/daysTextView"
-        android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textSize="100sp"
-        android:text="5"
         android:layout_above="@+id/daysSinceTextView"
         android:layout_alignLeft="@+id/daysSinceTextView"
-        android:layout_alignStart="@+id/daysSinceTextView" />
+        android:layout_alignStart="@+id/daysSinceTextView"
+        android:gravity="center_horizontal"
+        android:text="5"
+        android:textColor="@android:color/black"
+        android:textSize="100sp" />
 </RelativeLayout>
