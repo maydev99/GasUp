@@ -61,4 +61,28 @@
         android:text="5"
         android:textColor="@android:color/black"
         android:textSize="100sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lastGasTextView"
+        android:textColor="@android:color/black"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="Notification Set"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/notSetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_alignBaseline="@+id/lastGasTextView"
+        android:layout_alignBottom="@+id/lastGasTextView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:text="0 Days" />
 </RelativeLayout>

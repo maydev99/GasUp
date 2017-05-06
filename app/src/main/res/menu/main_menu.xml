@@ -10,4 +10,12 @@
 
     </item>
 
+    <item
+        android:id="@+id/set_notification"
+        android:title="Set Notification"
+        android:orderInCategory="2"
+        app:showAsAction="never">
+
+    </item>
+
 </menu>
