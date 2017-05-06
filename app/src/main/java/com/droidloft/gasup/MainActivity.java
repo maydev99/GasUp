@@ -30,7 +30,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    String version = "0.1", buildDate = "5-2-2017";
+    String version = "0.2", buildDate = "5-6-2017";
     TextView dateTextView, lastGasDateTextView, daysTextView, notSetTextView;
     Button gasUpButton;
     String lastGasDate, strDate;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         gasUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //final long time = 691200000;
+
                 AlertDialog.Builder confirmAlert = new AlertDialog.Builder(MainActivity.this);
                 confirmAlert.setTitle("GASUP!");
                 confirmAlert.setMessage("Are you sure?");
@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                         saveLastDate();
                         setAlarmManager();
                         Toast.makeText(MainActivity.this, "Thank you for Gassing Up!", Toast.LENGTH_SHORT).show();
-                        //scheduleNotificaion(getNotification(time));
                         dateTextView.setTextColor(Color.BLACK);
                     }
                 });
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         notificationIntent.addCategory("android.intent.category.DEFAULT");
 
         PendingIntent broadcast = PendingIntent.getBroadcast(MainActivity.this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        int notHours= notTime * 1;//change to 24
+        int notHours= notTime * 24;
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.HOUR, notHours);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
