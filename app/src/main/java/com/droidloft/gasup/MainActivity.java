@@ -30,7 +30,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    String version = "0.2", buildDate = "5-6-2017";
+    String version = "0.4", buildDate = "5-20-2017";
     TextView dateTextView, lastGasDateTextView, daysTextView, notSetTextView;
     Button gasUpButton;
     String lastGasDate, strDate;
@@ -65,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
                         lastGasDateTextView.setText("Last Gas Up: " + lastGasDate);
                         saveLastDate();
                         setAlarmManager();
+                        daysTextView.setText("0");
                         Toast.makeText(MainActivity.this, "Thank you for Gassing Up!", Toast.LENGTH_SHORT).show();
                         dateTextView.setTextColor(Color.BLACK);
+                        daysTextView.setTextColor(Color.BLACK);
                     }
                 });
 
@@ -158,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         daysTextView.setText("" + days);
 
         if(days >= 8) {
-            dateTextView.setTextColor(Color.RED);
+            daysTextView.setTextColor(Color.RED);
         }
 
     }
