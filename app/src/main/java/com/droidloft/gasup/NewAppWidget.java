@@ -58,7 +58,7 @@ public class NewAppWidget extends AppWidgetProvider {
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
 
-           /* RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
 
 
             SharedPreferences lastDatePrefs = context.getSharedPreferences("last_days_key", context.MODE_PRIVATE);
@@ -84,7 +84,7 @@ public class NewAppWidget extends AppWidgetProvider {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-            views.setOnClickPendingIntent(R.id.widget_container, pendingIntent);*/
+            views.setOnClickPendingIntent(R.id.widget_container, pendingIntent);
 
 
             updateAppWidget(context, appWidgetManager, appWidgetId);

@@ -4,6 +4,8 @@ import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,7 +32,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    String version = "0.4", buildDate = "5-20-2017";
+    String version = "0.5", buildDate = "5-27-2017";
     TextView dateTextView, lastGasDateTextView, daysTextView, notSetTextView;
     Button gasUpButton;
     String lastGasDate, strDate;
@@ -69,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Thank you for Gassing Up!", Toast.LENGTH_SHORT).show();
                         dateTextView.setTextColor(Color.BLACK);
                         daysTextView.setTextColor(Color.BLACK);
+                        updateWidget();
+                        
+
                     }
                 });
 
@@ -84,6 +89,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void updateWidget() {
+        Intent intent = new Intent(this, NewAppWidget.class);
+        intent.setAction("android.appwidget.action.APPWIDGET_UPDATE");
+        int ids[] = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), NewAppWidget.class));
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,ids);
+        sendBroadcast(intent);
     }
 
     private void setAlarmManager() {
@@ -197,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
         notDialog.show();
 
         final EditText notSetEditText = (EditText)notLayout.findViewById(R.id.notSetEditText);
+        notSetEditText.setText("" + notTime);
         Button notSetButton = (Button)notLayout.findViewById(R.id.setButton);
 
         notSetButton.setOnClickListener(new View.OnClickListener() {
