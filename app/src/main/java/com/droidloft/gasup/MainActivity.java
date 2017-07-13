@@ -32,7 +32,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    String version = "0.5", buildDate = "5-27-2017";
+    String version = "0.6", buildDate = "7-13-2017";
     TextView dateTextView, lastGasDateTextView, daysTextView, notSetTextView;
     Button gasUpButton;
     String lastGasDate, strDate;

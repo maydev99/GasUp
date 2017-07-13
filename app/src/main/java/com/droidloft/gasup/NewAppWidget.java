@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.widget.RemoteViews;
 
 import java.util.Calendar;
@@ -40,6 +41,10 @@ public class NewAppWidget extends AppWidgetProvider {
         int daysint = (int)days;
         String daysSince = Integer.toString(daysint);
         views.setTextViewText(R.id.widget_days_textView, daysSince);
+
+        if(daysint >= 8) {
+            views.setTextColor(R.id.widget_days_textView, Color.RED);
+        }
 
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -79,6 +84,10 @@ public class NewAppWidget extends AppWidgetProvider {
             int daysint = (int)days;
             String daysSince = Integer.toString(daysint);
             views.setTextViewText(R.id.widget_days_textView, daysSince);
+
+            if(daysint >= 8) {
+                views.setTextColor(R.id.widget_days_textView, Color.RED);
+            }
 
             Intent intent = new Intent(context, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
