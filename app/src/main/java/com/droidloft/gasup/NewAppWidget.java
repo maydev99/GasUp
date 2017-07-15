@@ -44,6 +44,9 @@ public class NewAppWidget extends AppWidgetProvider {
 
         if(daysint >= 8) {
             views.setTextColor(R.id.widget_days_textView, Color.RED);
+        } else {
+            views.setTextColor(R.id.widget_days_textView,Color.BLACK);
+
         }
 
         Intent intent = new Intent(context, MainActivity.class);
@@ -87,6 +90,8 @@ public class NewAppWidget extends AppWidgetProvider {
 
             if(daysint >= 8) {
                 views.setTextColor(R.id.widget_days_textView, Color.RED);
+            } else {
+                views.setTextColor(R.id.widget_days_textView, Color.BLACK);
             }
 
             Intent intent = new Intent(context, MainActivity.class);
